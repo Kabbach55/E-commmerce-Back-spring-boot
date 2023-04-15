@@ -19,7 +19,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product loadProductByRef(String ref) {
-        return productRepo.findByRef(ref);
+        return productRepo.findByRefContaining(ref);
+    }
+
+    @Override
+    public Product loadProductByDescription(String description) {
+        return productRepo.findByDescriptionContainingIgnoreCase(description);
     }
 
     @Override

@@ -7,6 +7,7 @@ import java.util.List;
 public interface ProductService {
     Product addNewProduct(Product product);
     Product loadProductByRef(String ref);
+    Product loadProductByDescription(String description);
     List<Product> listProducts();
 
 }

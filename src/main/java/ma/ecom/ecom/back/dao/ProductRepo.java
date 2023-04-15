@@ -6,5 +6,7 @@ import org.springframework.data.rest.core.annotation.RestResource;
 
 @RestResource
 public interface ProductRepo extends JpaRepository<Product,Long> {
-    Product findByRef (String ref);
+    Product findByRefContaining (String ref);
+    Product findByDescriptionContainingIgnoreCase(String description);
+
 }
