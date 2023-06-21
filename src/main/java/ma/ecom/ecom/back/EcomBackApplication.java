@@ -3,12 +3,12 @@ package ma.ecom.ecom.back;
 import ma.ecom.ecom.back.entities.Product;
 import ma.ecom.ecom.back.entities.User;
 import ma.ecom.ecom.back.entities.UserType;
-import ma.ecom.ecom.back.sevices.AccountService;
 import ma.ecom.ecom.back.sevices.ProductService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 public class EcomBackApplication {
@@ -26,6 +26,10 @@ public class EcomBackApplication {
 			System.out.println(productService.listProducts());
 
 		};
+	}
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder(){
+		return new BCryptPasswordEncoder();
 	}
 
 

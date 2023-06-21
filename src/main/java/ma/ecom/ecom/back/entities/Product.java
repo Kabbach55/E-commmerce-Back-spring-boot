@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Entity @AllArgsConstructor
 @NoArgsConstructor
 @Data
+
 public class Product {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -17,4 +18,8 @@ public class Product {
     @Column(unique = true)
     private String description;
     private double price;
+    private int stock;
+
+    public Product(Object o, String p1, String s, int i) {
+    }
 }
