@@ -17,6 +17,7 @@ public class Product {
     private String ref;
     @Column(unique = true)
     private String description;
+    private String image;
     private double price;
     private int stock;
 

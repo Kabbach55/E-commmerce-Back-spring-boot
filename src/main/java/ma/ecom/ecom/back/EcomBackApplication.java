@@ -1,5 +1,6 @@
 package ma.ecom.ecom.back;
 
+import ma.ecom.ecom.back.dao.ProductRepo;
 import ma.ecom.ecom.back.entities.Product;
 import ma.ecom.ecom.back.entities.User;
 import ma.ecom.ecom.back.entities.UserType;
@@ -18,12 +19,12 @@ public class EcomBackApplication {
 
 	}
 	@Bean
-	CommandLineRunner start(AccountService accountService , ProductService productService){
+	CommandLineRunner start(AccountService accountService , ProductService productService , ProductRepo productRepo){
 		return args -> {
 			accountService.addNewUser(new User(null,"zakaria","zakaria","kabbach","","","","", UserType.ADMIN));
-			productService.addNewProduct(new Product(null,"p1","Iphone 14 pro max", 15000));
+			productService.addNewProduct(new Product(null,"p1","Iphone 14 pro max",null, 15000));
 			System.out.println(accountService.listUsers());
-			System.out.println(productService.listProducts());
+			System.out.println(productRepo.findByDescriptionContainingIgnoreCase("iphone"));
 
 		};
 	}
